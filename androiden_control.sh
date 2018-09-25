@@ -135,6 +135,21 @@ function dev_off {
     fi
 }
 
+function alarm {
+    sendkey 26
+    sleep 1
+    sendkey 164
+    adb -s $uri shell am start -a android.intent.action.VIEW spotify:user:apulido271:playlist:413xJ2K0PqxRHzHXVHsGbB
+    sleep 0.5
+    sendkey 20
+    sendkey 20
+    sendkey 66
+    sendkey 127
+    sendkey 87
+    sendkey 24
+    sendkey 126
+}
+
 function send_button {
 local keycode
 
@@ -167,7 +182,7 @@ function presskey {
 
 function usage {
 	echo
-	echo "Usage: tv_control.sh <command> [<device id>[log | trace | debug]]"
+	echo "Usage: tv_control.sh <command> [<device id>[log | trace | debug]]"
 	echo
 	echo "Valid commands:"
 	echo "	status:  return device status - ON/OFF"
@@ -276,6 +291,9 @@ fi
 # process command
 #	
 case "$cmd" in
+    "alarm")
+        alarm
+        
 	"status")	# Display status
     	display_status
 		echo "$dsp_status";;
