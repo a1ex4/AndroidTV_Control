@@ -292,8 +292,8 @@ fi
 #	
 case "$cmd" in
     "alarm")
-        alarm
-        
+        alarm;;
+
 	"status")	# Display status
     	display_status
 		echo "$dsp_status";;
